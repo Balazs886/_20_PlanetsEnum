@@ -2,7 +2,13 @@ package hu.ak_akademia;
 
 public class Main {
     public static void main(String[] args) {
-        Planet earth = Planet.EARTH;
-        Print.printPlanet(earth);
+        printPlanets();
+    }
+
+    public static void printPlanets() {
+        for (Planet planet : Planet.values()) {
+            System.out.println(planet);
+        }
+
     }
 }

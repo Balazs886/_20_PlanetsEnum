@@ -1,14 +1,14 @@
 package hu.ak_akademia;
 
 public enum Planet {
-    MERKURY("Merkúr", 2439.64, 3.302 * Math.pow(10,23)
-    ), VENUS("Vénusz", 6051.59, 4.869 * Math.pow(10,24)
-    ), EARTH("Föld", 6378.1, 5.972 * Math.pow(10,24)
-    ), MARS("Mars", 3397, 6.4191 * Math.pow(10,23)
-    ), JUPITER("Jupiter", 71492.68, 1.8987 * Math.pow(10,27)
-    ), SATURN("Szaturnusz", 60267.14, 5.6851 * Math.pow(10,26)
-    ), URANUS("Uránusz", 25557.25, 8.6849 * Math.pow(10,25)
-    ), NEPTUNE("Neptunusz", 24766.36, 1.0244 * Math.pow(10,26)
+    MERKURY("Merkúr", 2439.64, 3.302 * Math.pow(10, 23)
+    ), VENUS("Vénusz", 6051.59, 4.869 * Math.pow(10, 24)
+    ), EARTH("Föld", 6378.1, 5.972 * Math.pow(10, 24)
+    ), MARS("Mars", 3397, 6.4191 * Math.pow(10, 23)
+    ), JUPITER("Jupiter", 71492.68, 1.8987 * Math.pow(10, 27)
+    ), SATURN("Szaturnusz", 60267.14, 5.6851 * Math.pow(10, 26)
+    ), URANUS("Uránusz", 25557.25, 8.6849 * Math.pow(10, 25)
+    ), NEPTUNE("Neptunusz", 24766.36, 1.0244 * Math.pow(10, 26)
     );
 
     private final double pi = 3.14;
@@ -42,7 +42,7 @@ public enum Planet {
     }
 
     public double getEscapeVelocity() {
-        return Math.pow((2*gamma*mass) / radius, 2);
+        return Math.pow((2 * gamma * mass) / radius, 2);
     }
 
     public String getName() {
@@ -55,5 +55,13 @@ public enum Planet {
 
     public double getMass() {
         return mass;
+    }
+
+    @Override
+    public String toString() {
+        String result = String.format("A %s bolygó\n", name);
+        result += String.format("sugara %s km\n", radius);
+        result += String.format("felszíne %s km2\n", getSourface());
+        return result;
     }
 }
