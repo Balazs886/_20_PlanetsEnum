@@ -15,53 +15,29 @@ public enum Planet {
     private final String name;
     private final double radius;
     private final double mass;
+    private final double sourface;
     private double volume;
+    private double density;
+    private double difficultyAcceleration;
+    private double escapeVelocity;
     private double gamma = 1;
 
     Planet(String name, double radius, double mass) {
         this.name = name;
         this.radius = radius;
         this.mass = mass;
-    }
-
-    public double getSourface() {
-        return 4 * Math.pow(radius, 2) * pi;
-    }
-
-    public double getVolume() {
-        return volume = 4 * Math.pow(radius, 3) * pi / 3;
-    }
-
-    public double getDensity() {
-        return mass / volume;
-
-    }
-
-    public double getDifficultyAcceleration() {
-        return gamma * mass / Math.pow(radius, 2);
-    }
-
-    public double getEscapeVelocity() {
-        return Math.pow((2 * gamma * mass) / radius, 2);
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public double getRadius() {
-        return radius;
-    }
-
-    public double getMass() {
-        return mass;
+        this.sourface = 4 * Math.pow(radius, 2) * pi;
+        this.volume = 4 * Math.pow(radius, 3) * pi / 3;
+        this.density = mass / volume;
+        this.difficultyAcceleration = gamma * mass / Math.pow(radius, 2);
+        this.escapeVelocity = Math.pow((2 * gamma * mass) / radius, 2);
     }
 
     @Override
     public String toString() {
         String result = String.format("A %s bolygó\n", name);
-        result += String.format("sugara %s km\n", radius);
-        result += String.format("felszíne %s km2\n", getSourface());
+        result += String.format("sugara %s %s\n", radius , Unit.RADIUS.toString());
+        result += String.format("felszíne %s %s\n", sourface, Unit.SOURFACE.toString());
         return result;
     }
 }
