@@ -13,7 +13,7 @@ public enum Planet {
 
     private final double pi = 3.14;
     private final String name;
-    private final double radius;
+    private final Value radius;
     private final double mass;
     private final double sourface;
     private double volume;
@@ -24,7 +24,8 @@ public enum Planet {
 
     Planet(String name, double radius, double mass) {
         this.name = name;
-        this.radius = radius;
+        this.radius = new Value(radius, Unit.LENGTH);
+
         this.mass = mass;
         this.sourface = 4 * Math.pow(radius, 2) * pi;
         this.volume = 4 * Math.pow(radius, 3) * pi / 3;
@@ -36,8 +37,7 @@ public enum Planet {
     @Override
     public String toString() {
         String result = String.format("A %s bolygó\n", name);
-        result += String.format("sugara %s %s\n", radius , Unit.RADIUS.toString());
-        result += String.format("felszíne %s %s\n", sourface, Unit.SOURFACE.toString());
+        result += String.format("sugara %s\n", radius);
         return result;
     }
 }
